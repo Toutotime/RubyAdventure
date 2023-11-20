@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();   
         timer = changeTime;
         animator = GetComponent<Animator>();
-        PlaySound(robotwalkClip);
+        
     } 
 
     // Update is called once per frame
@@ -52,30 +52,30 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+   void FixedUpdate()
     {
-        Vector2 position = rigidbody2D.position;
-
-        if (vertical)
-        {
-            position.y = position.y + Time.deltaTime * speed * direction;;
-            animator.SetFloat("Move X", 0);
-            animator.SetFloat("Move Y", 0);
-
-        }
-        else
-        {
-            position.x = position.x + Time.deltaTime * speed * direction;;
-            animator.SetFloat("Move X", direction);
-            animator.SetFloat("Move Y", 0);
-        }
-
-        rigidbody2D.MovePosition(position);
-
+        //remember ! inverse the test, so if broken is true !broken will be false and return won’t be executed.
         if(!broken)
         {
             return;
         }
+        
+        Vector2 position = rigidbody2D.position;
+        
+        if (vertical)
+        {
+            position.y = position.y + Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
+        }
+        else
+        {
+            position.x = position.x + Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
+        }
+        
+        rigidbody2D.MovePosition(position);
     }
 
     void OnCollisionEnter2D(Collision2D other)

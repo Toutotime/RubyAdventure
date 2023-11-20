@@ -215,5 +215,35 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2921252889930900290, guid: 3f6acd000dc44d14a81cb7b4450ea9df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f6acd000dc44d14a81cb7b4450ea9df, type: 3}
+--- !u!198 &2095583530117673012 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8431318051163631578, guid: 3f6acd000dc44d14a81cb7b4450ea9df, type: 3}
+  m_PrefabInstance: {fileID: 7500478026348552174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8060086240228811973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 561860052352957227, guid: 3f6acd000dc44d14a81cb7b4450ea9df, type: 3}
+  m_PrefabInstance: {fileID: 7500478026348552174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6106063082332607978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8060086240228811973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931d9cdef7734f446820a255b6f5372d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  vertical: 0
+  changeTime: 3
+  hitClip: {fileID: 8300000, guid: ae904c7305df7344d86b2092c0cb3a26, type: 3}
+  robotwalkClip: {fileID: 8300000, guid: 6bfbad8ffdf387d4e87e8fa07b62f7c1, type: 3}
+  broken: 0
+  smokeEffect: {fileID: 2095583530117673012}

@@ -3,7 +3,10 @@ guid: 931d9cdef7734f446820a255b6f5372d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hitClip: {fileID: 8300000, guid: ae904c7305df7344d86b2092c0cb3a26, type: 3}
+  - robotwalkClip: {fileID: 8300000, guid: 6bfbad8ffdf387d4e87e8fa07b62f7c1, type: 3}
+  - smokeEffect: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
