@@ -23,6 +23,8 @@ public class EnemyController : MonoBehaviour
 
     Animator animator;
 
+    private RubyController rubyController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,25 @@ public class EnemyController : MonoBehaviour
         timer = changeTime;
         animator = GetComponent<Animator>();
         
+        GameObject rubyControllerObject = GameObject.FindWithTag("RubyController"); //this line of code finds the RubyController script by looking for a "RubyController" tag on Ruby
+
+        if (rubyControllerObject != null)
+
+        {
+
+            rubyController = rubyControllerObject.GetComponent<RubyController>(); //and this line of code finds the rubyController and then stores it in a variable
+
+            print ("Found the RubyConroller Script!");
+
+        }
+
+        if (rubyController == null)
+
+        {
+
+            print ("Cannot find GameController Script!");
+
+        }
     } 
 
     // Update is called once per frame
@@ -99,10 +120,18 @@ public class EnemyController : MonoBehaviour
 
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
+
+        if (rubyController != null)
+        {
+            
+            controller.ChangeScore(1); //this line of code is increasing Score by 1!
+        
+        }
     }
      public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
 
-    }
+    } 
+
 }

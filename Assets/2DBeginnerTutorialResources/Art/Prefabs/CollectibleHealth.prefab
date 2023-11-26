@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedClip: {fileID: 8300000, guid: af5f8b64e3f58f24c87ff8f789b04f6c, type: 3}
+  healthEffect: {fileID: 1569114976749232023}
 --- !u!1001 &636487698392328589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +168,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2095264484254201370, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}
       propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095264484254201370, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}
+      propertyPath: TriggerModule.enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2095264484254201370, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}
@@ -291,6 +296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}
+--- !u!198 &1569114976749232023 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2095264484254201370, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}
+  m_PrefabInstance: {fileID: 636487698392328589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4141095430889337988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3579625490089139465, guid: 9a4be2fd46a3ea04f89e89f90ffbf8a7, type: 3}

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   maxHealth: 5
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 3069629204058372578, guid: 6ed48c9692bf0fd41a71e136bc12f1d1, type: 3}
   throwcogClip: {fileID: 0}
   hitSound: {fileID: 0}
   timeInvincible: 2
