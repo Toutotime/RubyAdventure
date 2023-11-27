@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 251788206}
   - component: {fileID: 251788205}
   m_Layer: 5
-  m_Name: Lose Screen
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2132,7 +2132,7 @@ GameObject:
   - component: {fileID: 698411549}
   - component: {fileID: 698411548}
   m_Layer: 5
-  m_Name: Win Screen
+  m_Name: WinScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13583,7 +13583,7 @@ GameObject:
   - component: {fileID: 1638889503}
   - component: {fileID: 1638889502}
   m_Layer: 5
-  m_Name: Score Text
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

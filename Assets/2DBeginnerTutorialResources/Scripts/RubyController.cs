@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 ﻿public class RubyController : MonoBehaviour
 {
@@ -11,6 +13,9 @@ using UnityEngine;
     public GameObject projectilePrefab;
     public GameObject HealthEffectPrefab;
     public GameObject HitEffectPrefab;
+    //public GameObject GameOverText;
+    //public GameObject WinScreen;
+
    
 
 
@@ -130,10 +135,8 @@ using UnityEngine;
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
-  
+//insert restart function here when we return to this project
 
-   
-    
     
     void Launch()
     {
