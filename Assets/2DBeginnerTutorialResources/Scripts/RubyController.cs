@@ -9,12 +9,21 @@ using UnityEngine;
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
+    public GameObject HealthEffectPrefab;
+    public GameObject HitEffectPrefab;
+   
+
+
+
 
     public AudioClip throwcogClip;
     public AudioClip hitSound;
     
     public int health { get { return currentHealth; }}
     int currentHealth;
+
+
+    
     
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -107,13 +116,24 @@ using UnityEngine;
             isInvincible = true;
             invincibleTimer = timeInvincible;
 
+            //GameObject hiteffect = Instantiate(HitEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            //this is suppose to trigger the hit effect but instead triggers the health effect particles
+            //we're running out of time so I just kind of left this in and commented it out
+
             PlaySound(hitSound);
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        
+        GameObject healtheffect = Instantiate(HealthEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        //this works unlike the hit effect prefab. would not recommend changing this
+
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
+
+  
+
+   
+    
     
     void Launch()
     {
