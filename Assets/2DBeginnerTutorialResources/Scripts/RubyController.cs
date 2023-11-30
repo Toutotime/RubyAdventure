@@ -41,8 +41,9 @@ using UnityEngine.SceneManagement;
 
     AudioSource audioSource;
 
-    public GameObject gameOverText;
-    bool gameOverText;
+
+    //public GameObject gameOverText;
+    //public bool gameOverText;
     
     
     // Start is called before the first frame update
@@ -101,30 +102,30 @@ using UnityEngine.SceneManagement;
 
         }
 
-if(currentHealth < 0)
-        {
-            gameOverText.SetActive(true);
-            gameOverText.text = "You lost! Press R to Restart!";
-        }
-         if (Input.GetKey(KeyCode.R))
+//if(currentHealth < 0)
+       // {
+        //    gameOverText.SetActive(true);
+         //   gameOverText.text = "You lost! Press R to Restart!";
+       // }
+       //  if (Input.GetKey(KeyCode.R))
 
-        {
+      //  {
 
-            if (gameOver == true)
+        //    if (gameOver == true)
 
-            {
+          //  {
 
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
+           //   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
 
-            }
+           // }
 
-        }
-        if (currentScore = 2)
-        {
-            gameOverText.SetActive(false);
-            gameOverText.text = "You won! Game Created by Group 5.";
-        }
-    }
+      //  }
+       // if (currentScore = 2)
+       // {
+       //     gameOverText.SetActive(false);
+       //     gameOverText.text = "You won! Game Created by Group 5.";
+       // }
+   // }
     
     void FixedUpdate()
     {
@@ -135,7 +136,7 @@ if(currentHealth < 0)
         rigidbody2d.MovePosition(position);
     }
 
-    public void ChangeHealth(int amount)
+public void ChangeHealth(int amount)
     {
         if (amount < 0)
         {
@@ -175,8 +176,9 @@ if(currentHealth < 0)
         
     }
 
-    public void PlaySound(AudioClip clip)
+public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
     }
+}
 }
