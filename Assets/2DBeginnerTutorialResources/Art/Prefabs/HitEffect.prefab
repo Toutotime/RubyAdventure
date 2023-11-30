@@ -1541,6 +1541,7 @@ ParticleSystem:
     rowMode: 1
     sprites:
     - sprite: {fileID: -647992572, guid: bb5bb2f184426a64cac53faa220820f5, type: 3}
+    - sprite: {fileID: -1587377602, guid: bb5bb2f184426a64cac53faa220820f5, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

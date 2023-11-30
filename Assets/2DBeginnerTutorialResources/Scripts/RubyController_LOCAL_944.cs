@@ -10,15 +10,7 @@ using UnityEngine.SceneManagement;
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
-    public GameObject HealthEffectPrefab;
-    public GameObject HitEffectPrefab;
-    //public GameObject GameOverText;
-    //public GameObject WinScreen;
-
-   
-
-
-
+    public ParticleSystem HealthEffect;
 
     public AudioClip throwcogClip;
     public AudioClip hitSound;
@@ -26,6 +18,9 @@ using UnityEngine.SceneManagement;
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+    public GameObject scoretextPrefab;
+    public int currentScore = 0;
+    public int score;
     
     
     public float timeInvincible = 2.0f;
@@ -101,7 +96,7 @@ using UnityEngine.SceneManagement;
 
         }
 
-if(currentHealth < 0)
+        if(currentHealth < 0)
         {
             gameOverText.SetActive(true);
             gameOverText.text = "You lost! Press R to Restart!";
@@ -145,23 +140,20 @@ if(currentHealth < 0)
             isInvincible = true;
             invincibleTimer = timeInvincible;
 
-            //GameObject hiteffect = Instantiate(HitEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-            //this is suppose to trigger the hit effect but instead triggers the health effect particles
-            //we're running out of time so I just kind of left this in and commented it out
-
             PlaySound(hitSound);
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        GameObject healtheffect = Instantiate(HealthEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        //this works unlike the hit effect prefab. would not recommend changing this
-
+        
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
-
-//insert restart function here when we return to this project
-
-    
+    public void ChangeScore(int amount)
+    {
+        currentScore = (currentScore + score);
+        
+        GameObject scoreText.instance.SetValue (currentScore);
+        GameObject scoreText.text= "Fixed Robots: " + score.ToString();
+    }
     void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 ﻿public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
@@ -26,6 +27,7 @@ using UnityEngine.SceneManagement;
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+
     
     
     public float timeInvincible = 2.0f;
@@ -40,9 +42,6 @@ using UnityEngine.SceneManagement;
     Vector2 lookDirection = new Vector2(1,0);
 
     AudioSource audioSource;
-
-    public GameObject gameOverText;
-    bool gameOverText;
     
     
     // Start is called before the first frame update
@@ -101,29 +100,6 @@ using UnityEngine.SceneManagement;
 
         }
 
-if(currentHealth < 0)
-        {
-            gameOverText.SetActive(true);
-            gameOverText.text = "You lost! Press R to Restart!";
-        }
-         if (Input.GetKey(KeyCode.R))
-
-        {
-
-            if (gameOver == true)
-
-            {
-
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
-
-            }
-
-        }
-        if (currentScore = 2)
-        {
-            gameOverText.SetActive(false);
-            gameOverText.text = "You won! Game Created by Group 5.";
-        }
     }
     
     void FixedUpdate()

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d54240df16aadda98ebb129303272abdd6899b16
 
 ﻿public class RubyController : MonoBehaviour
 {
@@ -10,6 +14,9 @@ using UnityEngine.SceneManagement;
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
+<<<<<<< HEAD
+    public ParticleSystem HealthEffect;
+=======
     public GameObject HealthEffectPrefab;
     public GameObject HitEffectPrefab;
     //public GameObject GameOverText;
@@ -19,6 +26,7 @@ using UnityEngine.SceneManagement;
 
 
 
+>>>>>>> d54240df16aadda98ebb129303272abdd6899b16
 
     public AudioClip throwcogClip;
     public AudioClip hitSound;
@@ -26,6 +34,13 @@ using UnityEngine.SceneManagement;
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+<<<<<<< HEAD
+    public GameObject scoretextPrefab;
+    public int currentScore = 0;
+    public int score;
+=======
+
+>>>>>>> d54240df16aadda98ebb129303272abdd6899b16
     
     
     public float timeInvincible = 2.0f;
@@ -101,7 +116,7 @@ using UnityEngine.SceneManagement;
 
         }
 
-if(currentHealth < 0)
+        if(currentHealth < 0)
         {
             gameOverText.SetActive(true);
             gameOverText.text = "You lost! Press R to Restart!";
@@ -158,10 +173,20 @@ if(currentHealth < 0)
 
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
+<<<<<<< HEAD
+    public void ChangeScore(int amount)
+    {
+        currentScore = (currentScore + score);
+        
+        GameObject scoreText.instance.SetValue (currentScore);
+        GameObject scoreText.text= "Fixed Robots: " + score.ToString();
+    }
+=======
 
 //insert restart function here when we return to this project
 
     
+>>>>>>> d54240df16aadda98ebb129303272abdd6899b16
     void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);

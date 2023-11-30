@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 ﻿public class RubyController : MonoBehaviour
 {
@@ -10,23 +9,12 @@ using UnityEngine.SceneManagement;
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
-    public GameObject HealthEffectPrefab;
-    public GameObject HitEffectPrefab;
-    //public GameObject GameOverText;
-    //public GameObject WinScreen;
-
-   
-
-
-
 
     public AudioClip throwcogClip;
     public AudioClip hitSound;
     
     public int health { get { return currentHealth; }}
     int currentHealth;
-
-    
     
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -40,9 +28,6 @@ using UnityEngine.SceneManagement;
     Vector2 lookDirection = new Vector2(1,0);
 
     AudioSource audioSource;
-
-    public GameObject gameOverText;
-    bool gameOverText;
     
     
     // Start is called before the first frame update
@@ -101,29 +86,6 @@ using UnityEngine.SceneManagement;
 
         }
 
-if(currentHealth < 0)
-        {
-            gameOverText.SetActive(true);
-            gameOverText.text = "You lost! Press R to Restart!";
-        }
-         if (Input.GetKey(KeyCode.R))
-
-        {
-
-            if (gameOver == true)
-
-            {
-
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
-
-            }
-
-        }
-        if (currentScore = 2)
-        {
-            gameOverText.SetActive(false);
-            gameOverText.text = "You won! Game Created by Group 5.";
-        }
     }
     
     void FixedUpdate()
@@ -145,22 +107,13 @@ if(currentHealth < 0)
             isInvincible = true;
             invincibleTimer = timeInvincible;
 
-            //GameObject hiteffect = Instantiate(HitEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-            //this is suppose to trigger the hit effect but instead triggers the health effect particles
-            //we're running out of time so I just kind of left this in and commented it out
-
             PlaySound(hitSound);
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        GameObject healtheffect = Instantiate(HealthEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        //this works unlike the hit effect prefab. would not recommend changing this
-
+        
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
-
-//insert restart function here when we return to this project
-
     
     void Launch()
     {
