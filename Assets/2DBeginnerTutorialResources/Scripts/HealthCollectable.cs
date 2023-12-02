@@ -21,10 +21,12 @@ public class HealthCollectable : MonoBehaviour
             controller.PlaySound(collectedClip);
         }
         
-    void OnDestroy()
-        {
-            GameObject = Instantiate(healthEffect);
-        }
+    
     }
 }
+    void OnDestroy()
+        {
+            ParticleSystem newParticles = Instantiate(healthEffect);
+        }
+
 }

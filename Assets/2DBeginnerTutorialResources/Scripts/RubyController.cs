@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 ﻿public class RubyController : MonoBehaviour
 {
@@ -26,6 +28,8 @@ using UnityEngine.SceneManagement;
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+    int score;
+
     
     
     public float timeInvincible = 2.0f;
@@ -42,8 +46,9 @@ using UnityEngine.SceneManagement;
     AudioSource audioSource;
 
 
-    //public GameObject gameOverText;
-    //public bool gameOverText;
+    public GameObject endTextGameObject;
+    public TextMeshProUGUI gameEndText;
+    public bool gameOver;
     
     
     // Start is called before the first frame update
@@ -102,6 +107,16 @@ using UnityEngine.SceneManagement;
 
         }
 
+        if(!gameOver && health <= 0)
+        {
+            gameOver = true; 
+            endTextGameObject.SetActive(true);
+            gameEndText.text = ("You lost! Press R to Restart!");
+
+        }
+
+    }
+
 //if(currentHealth < 0)
        // {
         //    gameOverText.SetActive(true);
@@ -136,7 +151,7 @@ using UnityEngine.SceneManagement;
         rigidbody2d.MovePosition(position);
     }
 
-public void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         if (amount < 0)
         {
@@ -160,6 +175,12 @@ public void ChangeHealth(int amount)
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
+    public void ChangeScore(int amount)
+    {
+        score += amount;
+
+    }
+
 //insert restart function here when we return to this project
 
     
@@ -176,9 +197,9 @@ public void ChangeHealth(int amount)
         
     }
 
-public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
     }
-}
+
 }

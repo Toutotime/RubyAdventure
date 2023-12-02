@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: Wooden Chest 3 Opening
   serializedVersion: 6
-  m_Legacy: 1
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -39,8 +39,20 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 35897c4bb39e2e74d919227cc5bbabb8, type: 3}
+    - {fileID: 21300000, guid: fd0a982c2e5b70846aa7dc4193cf1e60, type: 3}
+    - {fileID: 21300000, guid: 195b47e688575444ba3f99d77ed82b37, type: 3}
+    - {fileID: 21300000, guid: 25a5d2636d3f8254681a4b6e57a9386e, type: 3}
+    - {fileID: 21300000, guid: 888df2a07ee450245a20724231ec5103, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
