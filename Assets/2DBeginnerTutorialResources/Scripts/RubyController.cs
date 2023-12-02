@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
-public class RubyController : MonoBehaviour
+﻿public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
     
@@ -26,6 +28,8 @@ public class RubyController : MonoBehaviour
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+    int score;
+
     
     
     public float timeInvincible = 2.0f;
@@ -42,8 +46,9 @@ public class RubyController : MonoBehaviour
     AudioSource audioSource;
 
 
-    //public GameObject gameOverText;
-    //public bool gameOverText;
+    public GameObject endTextGameObject;
+    public TextMeshProUGUI gameEndText;
+    public bool gameOver;
     
     
     // Start is called before the first frame update
@@ -102,7 +107,17 @@ public class RubyController : MonoBehaviour
 
         }
 
-        //if(currentHealth < 0)
+        if(!gameOver && health <= 0)
+        {
+            gameOver = true; 
+            endTextGameObject.SetActive(true);
+            gameEndText.text = ("You lost! Press R to Restart!");
+
+        }
+
+    }
+
+//if(currentHealth < 0)
        // {
         //    gameOverText.SetActive(true);
          //   gameOverText.text = "You lost! Press R to Restart!";
@@ -125,9 +140,9 @@ public class RubyController : MonoBehaviour
        //     gameOverText.SetActive(false);
        //     gameOverText.text = "You won! Game Created by Group 5.";
        // }
-        // }
+   // }
     
-       void FixedUpdate()
+    void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
@@ -145,11 +160,29 @@ public class RubyController : MonoBehaviour
             
             isInvincible = true;
             invincibleTimer = timeInvincible;
+
+            //GameObject hiteffect = Instantiate(HitEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            //this is suppose to trigger the hit effect but instead triggers the health effect particles
+            //we're running out of time so I just kind of left this in and commented it out
+
+            PlaySound(hitSound);
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+        GameObject healtheffect = Instantiate(HealthEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        //this works unlike the hit effect prefab. would not recommend changing this
+
+        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
+
+    public void ChangeScore(int amount)
+    {
+        score += amount;
+
+    }
+
+//insert restart function here when we return to this project
+
     
     void Launch()
     {
@@ -159,8 +192,14 @@ public class RubyController : MonoBehaviour
         projectile.Launch(lookDirection, 300);
 
         animator.SetTrigger("Launch");
+        
+        PlaySound(throwcogClip);
+        
     }
 
-
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
+
 }

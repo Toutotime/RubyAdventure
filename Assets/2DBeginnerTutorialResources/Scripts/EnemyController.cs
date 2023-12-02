@@ -124,7 +124,7 @@ public class EnemyController : MonoBehaviour
         if (rubyController != null)
         {
             
-            controller.ChangeScore(1); //this line of code is increasing Score by 1!
+             rubyController.ChangeScore(1); //this line of code is increasing Score by 1!
         
         }
     }
