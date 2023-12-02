@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-﻿public class RubyController : MonoBehaviour
+public class RubyController : MonoBehaviour
 {
     public float speed = 3.0f;
     
@@ -102,7 +102,7 @@ using UnityEngine.SceneManagement;
 
         }
 
-//if(currentHealth < 0)
+        //if(currentHealth < 0)
        // {
         //    gameOverText.SetActive(true);
          //   gameOverText.text = "You lost! Press R to Restart!";
@@ -125,9 +125,9 @@ using UnityEngine.SceneManagement;
        //     gameOverText.SetActive(false);
        //     gameOverText.text = "You won! Game Created by Group 5.";
        // }
-   // }
+        // }
     
-    void FixedUpdate()
+       void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
@@ -136,7 +136,7 @@ using UnityEngine.SceneManagement;
         rigidbody2d.MovePosition(position);
     }
 
-public void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
         if (amount < 0)
         {
@@ -145,23 +145,11 @@ public void ChangeHealth(int amount)
             
             isInvincible = true;
             invincibleTimer = timeInvincible;
-
-            //GameObject hiteffect = Instantiate(HitEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-            //this is suppose to trigger the hit effect but instead triggers the health effect particles
-            //we're running out of time so I just kind of left this in and commented it out
-
-            PlaySound(hitSound);
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        GameObject healtheffect = Instantiate(HealthEffectPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        //this works unlike the hit effect prefab. would not recommend changing this
-
-        UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
-
-//insert restart function here when we return to this project
-
     
     void Launch()
     {
@@ -171,14 +159,8 @@ public void ChangeHealth(int amount)
         projectile.Launch(lookDirection, 300);
 
         animator.SetTrigger("Launch");
-        
-        PlaySound(throwcogClip);
-        
     }
 
-public void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
+
     }
-}
 }
