@@ -24,6 +24,8 @@ using TMPro;
 
     public AudioClip throwcogClip;
     public AudioClip hitSound;
+    public AudioClip dialogue2;
+
     
     public int health { get { return currentHealth; }}
     int currentHealth;
@@ -93,6 +95,14 @@ using TMPro;
             
         }
 
+        //Other npcs besides Jambi have their own key bindings assigned to them
+        //I think a better way for this would be to have a bunch of true and false statements for each npc
+        //for the time being tho and because I wanted to avoid breaking anything with the original talking raycast script
+        //all npcs have their own keybindings for the time being
+        //so rabbit npc can be interacted with the z key
+        //pengu npc that doesn't give a quest hint = v key
+        //pengu npc with quest + chest hint = f key
+
         if(Input.GetKeyDown(KeyCode.X))
         {
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
@@ -102,9 +112,52 @@ using TMPro;
                 if (character != null)
                 {
                     character.DisplayDialog();
+                    PlaySound(dialogue2);
                 }
             }
 
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("RabbitNPC"));
+            if (hit.collider != null)
+            {
+                RabbitNPC character = hit.collider.GetComponent<RabbitNPC>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                    PlaySound(dialogue2);
+                }
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("PenguNPC"));
+            if (hit.collider != null)
+            {
+                PenguNPC character = hit.collider.GetComponent<PenguNPC>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                    PlaySound(dialogue2);
+                }
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("PenguQuest"));
+            if (hit.collider !=null)
+            {
+                PenguQuest character = hit.collider.GetComponent<PenguQuest>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                    PlaySound(dialogue2);
+                }
+            }
         }
 
         if(!gameOver && health <= 0)

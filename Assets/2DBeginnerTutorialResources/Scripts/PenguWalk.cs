@@ -6,6 +6,7 @@ public class PenguWalk : MonoBehaviour
 {
     public float speed;
     public float changeTime = 3.0f;
+    float timerDisplay;
 
     Rigidbody2D rigidbody2D;
     float timer;
@@ -14,6 +15,7 @@ public class PenguWalk : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+       
     }
 
     void Update()
@@ -25,14 +27,18 @@ public class PenguWalk : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
-    }
-    
-    void FixedUpdate()
+
+       }
+        void FixedUpdate()
     {
         Vector2 position = rigidbody2D.position;
         position.x = position.x + Time.deltaTime * speed * direction;
         
         rigidbody2D.MovePosition(position);
     }
+    }
+    
+   
 
-}
+
+

@@ -19,10 +19,10 @@ TagManager:
   - Projectile
   - Confiner
   - NPC
-  - 
-  - 
-  - 
-  - 
+  - RabbitNPC
+  - PenguNPC
+  - PenguQuest
+  - Chest
   - 
   - 
   - 

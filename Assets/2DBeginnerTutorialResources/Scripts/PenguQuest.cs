@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NonPlayerCharacter : MonoBehaviour
+public class PenguQuest : MonoBehaviour
 
 {
     public float displayTime =  0.4f;

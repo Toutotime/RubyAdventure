@@ -11,6 +11,8 @@ public class Chest : MonoBehaviour
     private Transform cogCreateRef;
 
     // Update is called once per frame
+    // I think using something similar to the npc raycast dialogue system will work better for this?
+    
     void Update()
     {
         if (isInsideTrigger == true)// is colliding with chest?
@@ -42,6 +44,7 @@ public class Chest : MonoBehaviour
    //{
         //Destroy (other.gameObject);
     //} Need input later for how to destroy cog bag
+    //I think the code for this should be the same as when ruby picks up the health collectable and the obj is destroyed
 
     void OnTriggerExit2D (Collider2D other)
     {
