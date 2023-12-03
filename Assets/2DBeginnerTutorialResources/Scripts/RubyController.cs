@@ -14,11 +14,9 @@ using TMPro;
     public GameObject projectilePrefab;
     public GameObject HealthEffectPrefab;
     public GameObject HitEffectPrefab;
-    //public GameObject GameOverText;
-    //public GameObject WinScreen;
 
-   
 
+    
 
 
 
@@ -103,6 +101,9 @@ using TMPro;
         //pengu npc that doesn't give a quest hint = v key
         //pengu npc with quest + chest hint = f key
 
+        //key codes can be x for consistancy, add true false statements later if possible- VH
+       
+
         if(Input.GetKeyDown(KeyCode.X))
         {
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
@@ -118,7 +119,7 @@ using TMPro;
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("RabbitNPC"));
             if (hit.collider != null)
@@ -132,7 +133,7 @@ using TMPro;
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.V))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("PenguNPC"));
             if (hit.collider != null)
@@ -146,7 +147,7 @@ using TMPro;
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.X))
         {
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("PenguQuest"));
             if (hit.collider !=null)
@@ -160,13 +161,32 @@ using TMPro;
             }
         }
 
+       //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f);
+        //    if (hit.collider !=null)
+        //    {
+         //       Chest GameObject = hit.collider.GetComponent<Chest>();
+         //   if (GameObject != null)
+         //       {
+          //          isOpen = true;
+          //      }
+          //  }
+       // } //Ignore for now, playing with chest script
+
         if(!gameOver && health <= 0)
         {
             gameOver = true; 
             endTextGameObject.SetActive(true);
             gameEndText.text = ("You lost! Press R to Restart!");
-
         }
+            
+        if(Input.GetKeyDown(KeyCode.R) && !gameOver) // reload is not working check again
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        
 
     }
 
