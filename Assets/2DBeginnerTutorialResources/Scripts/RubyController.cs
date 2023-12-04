@@ -16,6 +16,7 @@ using TMPro;
     public GameObject HitEffectPrefab;
 
 
+
     
 
 
@@ -99,9 +100,12 @@ using TMPro;
         //all npcs have their own keybindings for the time being
         //so rabbit npc can be interacted with the z key
         //pengu npc that doesn't give a quest hint = v key
-        //pengu npc with quest + chest hint = f key
+        //pengu npc with quest + chest hint = f key -GY
 
         //key codes can be x for consistancy, add true false statements later if possible- VH
+
+        //tested this and it works 
+        //disregard previous suggestions and keybindings- GY
        
 
         if(Input.GetKeyDown(KeyCode.X))

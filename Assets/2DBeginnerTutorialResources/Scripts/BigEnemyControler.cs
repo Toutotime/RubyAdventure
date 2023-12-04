@@ -17,7 +17,12 @@ public class BigEnemyControler : MonoBehaviour
 
     public bool broken; 
 
+    
+
     public ParticleSystem smokeEffect;
+    public GameObject BEBullet;
+    public Transform  bulletPos;
+
    
     AudioSource audioSource;
 
@@ -33,6 +38,7 @@ public class BigEnemyControler : MonoBehaviour
         animator = GetComponent<Animator>();
         
         GameObject rubyControllerObject = GameObject.FindWithTag("RubyController"); //this line of code finds the RubyController script by looking for a "RubyController" tag on Ruby
+
 
         if (rubyControllerObject != null)
 
@@ -62,6 +68,13 @@ public class BigEnemyControler : MonoBehaviour
         {
             direction = -direction;
             timer = changeTime;
+        }
+
+        if(timer > 2)
+        {
+            timer = 1;
+            shoot();
+
         }
 
         {
@@ -99,14 +112,23 @@ public class BigEnemyControler : MonoBehaviour
         rigidbody2D.MovePosition(position);
     }
 
+    void shoot()
+    {
+        Instantiate(BEBullet, bulletPos.position, Quaternion.identity);
+
+    }
+
+
+
     void OnCollisionEnter2D(Collision2D other)
     {
         RubyController player = other.gameObject.GetComponent<RubyController>();
 
         if (player != null)
         {
-            player.ChangeHealth(-1);
+            player.ChangeHealth(-3);
             player.PlaySound(hitClip);
+            //because big enemy = ruby will take more damage when walking into it -GY
             
         }
          
